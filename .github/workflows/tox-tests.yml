@@ -62,11 +62,11 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Update existing dependencies
         run: sudo apt-get update -y
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
         with:
           python-version: 3.7
       - name: Install Tox
@@ -74,7 +74,7 @@ jobs:
       - name: Run Tox
         run: tox -e py37
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2.1.0
+        uses: codecov/codecov-action@v2
         with:
           fail_ci_if_error: true
           verbose: true
