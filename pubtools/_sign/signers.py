@@ -1,7 +1,7 @@
 class Signer:
     """Class for signing."""
 
-    def load_config(self, config_data: dict[str, any]):
+    def load_config(self, config_data):
         """
         Load configuration.
 
