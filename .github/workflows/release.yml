@@ -22,7 +22,7 @@ jobs:
         TWINE_USERNAME: xxxxzm_2005 
         TWINE_PASSWORD: ${{ secrets.TESTPYPI_TOKEN }}
       run: |
-        python python3 -m build --wheel 
+        python -m build --wheel 
         twine upload --repository testpypi dist/*
 
   #build-appimage:
