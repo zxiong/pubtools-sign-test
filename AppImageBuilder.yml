@@ -9,14 +9,14 @@ script:
   # Install icon (every AppImage requires one)
   - touch AppDir/usr/share/icons/hicolor/256x256/apps/app_icon.png
   # Install application and its dependencies
-  - python3.8 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ --system --ignore-installed --prefix=/usr --root=AppDir mytools.sign==${VERSION}
+  - python3.8 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ --system --ignore-installed --prefix=/usr --root=AppDir pubtools.sign==${VERSION}
 
 AppDir:
   path: ./AppDir
 
   app_info:
-    id: org.mytools-sign
-    name: mytools-sign 
+    id: org.test.pubtools-sign
+    name: test-pubtools-sign 
     icon: app_icon
     version: ${VERSION} 
     # Set the python executable as entry point
