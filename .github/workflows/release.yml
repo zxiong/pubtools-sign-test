@@ -26,8 +26,12 @@ jobs:
         twine upload --skip-existing --repository testpypi dist/*
 
   build-appimage:
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      #- name: Update existing dependencies
+      #  run: sudo apt-get update -y
       - name: Build AppImage
         uses: AppImageCrafters/build-appimage-action@master
         env:
