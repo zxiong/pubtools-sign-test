@@ -23,19 +23,19 @@ jobs:
         TWINE_PASSWORD: ${{ secrets.TESTPYPI_TOKEN }}
       run: |
         python -m build --wheel 
-        twine upload --repository testpypi dist/*
+        twine upload --skip-existing --repository testpypi dist/*
 
-  #build-appimage:
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - name: Build AppImage
-  #      uses: AppImageCrafters/build-appimage-action@master
-  #      env:
-  #        UPDATE_INFO: gh-releases-zsync|release-engineering|pubtools-sign|latest|*x86_64.AppImage.zsync
-  #        VERSION: ${{ github.ref_name }}
-  #      with:
-  #        recipe: ../../AppImageBuilder.yml
-  #    - uses: actions/upload-artifact@v3
-  #      with:
-  #        name: AppImage
-  #        path: './*.AppImage*'
+  build-appimage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build AppImage
+        uses: AppImageCrafters/build-appimage-action@master
+        env:
+          UPDATE_INFO: gh-releases-zsync|release-engineering|pubtools-sign|latest|*x86_64.AppImage.zsync
+          VERSION: ${{ github.ref_name }}
+        with:
+          recipe: ../../AppImageBuilder.yml
+      - uses: actions/upload-artifact@v3
+        with:
+          name: AppImage
+          path: './*.AppImage*'
