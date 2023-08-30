@@ -6,7 +6,6 @@ on:
 
 jobs:
   build-appimage:
-    needs: deploy
     runs-on: ubuntu-latest
     permissions:
         contents: write
