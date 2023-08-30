@@ -1,6 +1,7 @@
 version: 1
 script:
   # Install dependency which is required by appimagebuilder 
+  - apt-get update
   - apt install -y squashfs-tools libssl-dev
   # Remove any previous build
   - rm -rf AppDir  | true
