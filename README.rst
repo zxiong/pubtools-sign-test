@@ -28,4 +28,3 @@ Setup
 
 Usage
 =====
-i
